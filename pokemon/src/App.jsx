@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import PokemonForm from "./components/PokemonForm";
-import PokemonList from "./components/PokemonList";
+// import PokemonList from "./components/PokemonList";
 import "./App.css";
 
 export default function App() {
