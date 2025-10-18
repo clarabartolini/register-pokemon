@@ -2,23 +2,18 @@
     background-color: #e3350d;
     color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    padding: 10px 40px;
+    padding: 10px 20px; 
     height: 70px;
     position: fixed; 
     top: 0;
     left: 0;
     right: 0;
     z-index: 2;
-  }
-  
-  .logo {
+}
+
+.logo {
     height: 45px;
-  }
-  
-  .register {
-    font-weight: bold;
-    font-size: 18px;
-  }
-  
+}
+

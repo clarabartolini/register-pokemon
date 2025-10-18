@@ -1,65 +1,57 @@
 .form-container {
-    background-color: rgba(255, 255, 255, 0.85);
-    padding: 2rem;
-    border-radius: 15px;
-    max-width: 400px;
-    width: 90%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  label {
-    font-weight: bold;
-    color: #e3350d;
-    text-align: left;
-  }
-  
-  input,
-  select,
-  textarea {
-    width: 100%;
-    border: none;
-    background-color: #000;
-    color: #fff;
-    padding: 0.7rem;
-    border-radius: 8px;
-    font-family: inherit;
-  }
-  
-  textarea {
-    height: 80px;
-    resize: none;
-  }
-  
-  input[type="range"] {
-    accent-color: #e3350d;
-  }
-  
-  button {
-    background-color: #e3350d;
-    color: #fff;
-    border: none;
-    padding: 0.8rem;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  button:hover {
-    background-color: #c02c0b;
-  }
-  
-  .mensagem {
-    margin-top: 1rem;
-    color: #fff;
-    text-align: center;
-    font-weight: bold;
-  }
-  
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 20px;
+  width: 380px;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+label {
+  font-weight: 600;
+  text-align: left;
+}
+
+input,
+select,
+textarea {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: none;
+  height: 80px;
+}
+
+button {
+  background: #ffcb05;
+  color: #2a75bb;
+  border: none;
+  padding: 0.7rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #2a75bb;
+  color: #fff;
+}
+
+.mensagem {
+  margin-top: 1rem;
+  font-weight: bold;
+}

@@ -5,7 +5,6 @@ export default function Header() {
   return (
     <header className="header">
       <img src={logo} alt="Pokémon Logo" className="logo" />
-      <span className="register">Registre-se</span>
     </header>
   );
 }

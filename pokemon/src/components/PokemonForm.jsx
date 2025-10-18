@@ -1,26 +1,29 @@
 import { useState } from "react";
 import "../style/PokemonForm.css";
 
-export default function PokemonForm() {
+export default function PokemonForm({ onAddPokemon }) {
   const [nome, setNome] = useState("");
   const [tipo, setTipo] = useState("");
   const [descricao, setDescricao] = useState("");
-  const [poder, setPoder] = useState("");
+  const [poder, setPoder] = useState(50);
   const [mensagem, setMensagem] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!nome || !tipo || !descricao || !poder) {
+    if (!nome || !tipo || !descricao || poder === "") {
       setMensagem("🚨 Preencha todos os campos!");
       return;
     }
+
+    const novoPokemon = { nome, tipo, descricao, poder };
+    onAddPokemon(novoPokemon);
 
     setMensagem("✅ Pokémon cadastrado!");
     setNome("");
     setTipo("");
     setDescricao("");
-    setPoder("");
+    setPoder(50);
   };
 
   return (
@@ -52,7 +55,7 @@ export default function PokemonForm() {
           placeholder="Fale um pouco sobre o Pokémon..."
         />
 
-        <label>Poder</label>
+        <label>Poder: {poder}</label>
         <input
           type="range"
           min="0"
