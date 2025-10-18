@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import Header from "./components/Header";
+import PokemonForm from "./components/PokemonForm";
+import PokemonList from "./components/PokemonList";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [pokemons, setPokemons] = useState(() => {
+    try {
+      const saved = localStorage.getItem("pokemons_v1");
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem("pokemons_v1", JSON.stringify(pokemons));
+  }, [pokemons]);
+
+  const addPokemon = (pokemon) => {
+    setPokemons((prev) => [pokemon, ...prev]);
+  };
+
+  const removePokemon = (index) => {
+    setPokemons((prev) => prev.filter((_, i) => i !== index));
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app">
+      <Header />
+      <main className="main">
+        <div className="content-wrapper">
+          <PokemonForm onAddPokemon={addPokemon} />
+          <PokemonList pokemons={pokemons} onRemove={removePokemon} />
+        </div>
+      </main>
+    </div>
+  );
 }
-
-export default App
